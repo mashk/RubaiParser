@@ -1,7 +1,7 @@
 function showr(){
 	var blank_rubai = document.getElementById("rubai").value
 	
-	var rubai = blank_rubai.replace(/[\n\r](?!\w)/gi,'').split(/\r?\n/);
+	var rubai = blank_rubai.replace(/[\n\r](?!\s)/gi,'').split(/\r?\n/);
 
 	var formatted_rubai = {
 		one		: rubai[0],
