@@ -1,7 +1,7 @@
 function showr(){
-	var blank_rubai = document.getElementById("rubai").value;
+	var blank_rubai = document.getElementById("rubai").value
 	
-	var rubai = blank_rubai.split(/\r?\n/);
+	var rubai = blank_rubai.replace(/[\n\r](?!\w)/gi,'').split(/\r?\n/);
 
 	var formatted_rubai = {
 		one		: rubai[0],
@@ -10,5 +10,10 @@ function showr(){
 		four 	: rubai[3]
 	}
 
-	document.getElementById('output').innerHTML = JSON.stringify(formatted_rubai);
+	// document.getElementById('output').innerHTML = JSON.stringify(formatted_rubai, null, '\t');
+	var element = document.createElement('p')
+	var text = document.createTextNode(JSON.stringify(formatted_rubai, null, '\t'))
+	element.appendChild(text)
+
+	document.getElementById('output').appendChild(element)
 }
